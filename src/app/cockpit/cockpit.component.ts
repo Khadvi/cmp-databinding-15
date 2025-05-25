@@ -11,7 +11,7 @@ export class CockpitComponent implements OnInit {
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   // newServerName = '';
   // newServerContent = '';
-  @ViewChild('serverContentInput', { static: false }) serverContentInput!: ElementRef;
+  @ViewChild('serverContentInput') serverContentInput!: ElementRef;
 
   constructor() { }
 
@@ -30,6 +30,10 @@ export class CockpitComponent implements OnInit {
       serverName: nameInput.value,
       serverContent: this.serverContentInput.nativeElement.value
     });
+  }
+
+   logFromTemp(value: string) {
+    console.log('Value from template (using #ref):', value);
   }
 
 }
